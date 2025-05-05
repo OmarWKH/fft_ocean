@@ -1,0 +1,13 @@
+#pragma kernel CSMain
+
+RWTexture2D<float4> Result;
+
+// not used
+[numthreads(16,16,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    float x = 0;
+    float y = sin(id.x + 1) / 2.0;
+    float z = 0;
+    Result[id.xy] = float4(x, y, z, 0);
+}
